@@ -3,9 +3,13 @@ on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
-    container: docker://dvcorg/cml-py3:latest
+    # container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2.2.2
+        with:
+           # Version range or exact version of a Python version to use, using SemVer's version range syntax.
+           python-version: 3.8
       - name: 'Train my model'
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -13,9 +17,10 @@ jobs:
            # Your ML workflow goes here
            pip install -r requirements.txt
       
-      - run: python model.py
+      - run: |
+          python model.py
       
-      - run: | 
+       
           echo "Writing Report"
           
           
