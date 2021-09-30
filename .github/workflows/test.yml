@@ -17,7 +17,7 @@ jobs:
            # Your ML workflow goes here
            pip install -r requirements.txt
            
-      - name: 'Run my model'
+      # - name: 'Run my model'
       
       - run: |
           python model.py
