@@ -9,10 +9,14 @@ jobs:
       - name: 'Train my model'
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Your ML workflow goes here
-          pip install -r requirements.txt
-          python model.py
+      - run: 
+           # Your ML workflow goes here
+           pip install -r requirements.txt
+      
+      - run: python model.py
+      
+      - run: | 
+          echo "Writing Report"
           
           
           echo "## Model Metrics" >> report.md
