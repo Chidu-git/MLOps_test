@@ -10,12 +10,14 @@ jobs:
         with:
            # Version range or exact version of a Python version to use, using SemVer's version range syntax.
            python-version: 3.8
-      - name: 'Train my model'
+      - name: 'Install the dependencies'
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
       - run: 
            # Your ML workflow goes here
            pip install -r requirements.txt
+           
+      - name: 'Run my model'
       
       - run: |
           python model.py
