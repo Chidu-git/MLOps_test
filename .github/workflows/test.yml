@@ -1,12 +1,11 @@
 name: model-CHD
 on: [push]
 jobs:
-  runChidusjob:
+  run:
     runs-on: [ubuntu-latest]
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
-     
       - name: 'Install the dependencies'
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
